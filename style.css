@@ -1,0 +1,193 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background: rgb(228, 228, 228);
+}
+:root {
+    --music-background-color: linear-gradient(to right, #ff6388, #ff4772);
+    --text-light-color: rgb(224, 224, 224);
+    --text-dark-color: black;
+    --pink-shadow: 10px 10px 30px 10px rgb(255, 47, 82);
+    --grey-text-color: rgb(241, 241, 241);
+    --grey-background-color: rgb(241, 241, 241);
+    --progress-bar-background-color: rgb(255, 47, 82);
+    --controll-buttons-playing-hover-state: rgb(194, 194, 194);
+}
+/* section of mask effect */
+.mask-effect {
+    min-height: 100vh;
+    background: rgb(204, 204, 204);
+}
+.mask-effect.play {
+    background: var(--music-background-color);
+    animation: pop-out-circle 0.9s linear alternate;
+}
+@keyframes pop-out-circle {
+    from {
+        clip-path: circle(0%);
+        -webkit-clip-path: circle(0%);
+    }
+    to {
+        clip-path: circle(100%);
+        -webkit-clip-path: circle(100%);
+    }
+}
+
+/* styling the music card */
+.music-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.music-image-container {
+    width: 300px;
+    height: 300px;
+}
+.music-image-container img {
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    box-shadow: 10px 10px 30px 10px rgb(110, 110, 110);
+    animation: rotate 0.5s linear infinite alternate;
+    animation-play-state: paused;
+}
+.music-card.play .music-image-container img {
+    animation-play-state: running;
+    box-shadow: var(--pink-shadow);
+}
+
+@keyframes rotate {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}
+.music-title h1 {
+    font-family: 'Kaushan Script';
+    text-align: center;
+    color: var(--text-dark-color);
+}
+
+.music-author h3 {
+    font-family: 'Kaushan Script', sans-serif;
+    color: var(--text-dark-color);
+}
+.duration-and-progress-cont {
+    width: 60%;
+    height: 50px;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+}
+.music-time-cont {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Kaushan Script';
+    color: var(--text-dark-color);
+}
+
+.progress-bar-container {
+    width: 80%;
+    height: 10px;
+    border-radius: 20px;
+    background-color: rgb(156, 155, 155);
+    cursor: pointer;
+}
+.music-card.play .progress-bar-container {
+    background-color: var(--grey-background-color);
+}
+.music-card.play h1 {
+    color: var(--text-light-color);
+}
+.music-card.play h3 {
+    color: var(--text-light-color);
+}
+.music-card.play span {
+    color: var(--text-light-color);
+}
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    border-radius: 20px;
+    transition: width;
+    background-color: rgb(36, 36, 36);
+}
+.music-card.play .progress-bar {
+    background: brown;
+}
+.music-button-controlls {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 25px;
+    color: rgb(83, 83, 83);
+}
+.music-button-controlls i {
+    cursor: pointer;
+}
+#play-button {
+    font-size: 35px;
+}
+.music-card.play .music-button-controlls i {
+    color: var(--grey-background-color);
+}
+.music-button-controlls i:hover {
+    color: rgb(175, 175, 175);
+    transform: scale(1.1);
+}
+.music-button-controlls i:active {
+    color: rgb(83, 83, 83);
+    transform: scale(1);
+}
+.music-card.play i:hover {
+    color: var(--controll-buttons-playing-hover-state);
+}
+.music-card.play i:active {
+    color: var(--text-light-color);
+}
+
+/* responsive layout */
+@media screen and (max-width: 1000px) {
+    .music-card {
+        min-height: 80vh;
+        min-width: 100vw;
+        justify-content: space-around;
+    }
+    #music-image-container {
+        width: 260px;
+        height: 260px;
+    }
+    #progress-bar-container {
+        width: 80%;
+    }
+    #music-time-cont {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #progress-bar-container {
+        width: 90%;
+    }
+    #music-time-cont {
+        width: 90%;
+    }
+}
+
+

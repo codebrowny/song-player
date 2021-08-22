@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- font awesome link -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<!-- css styles -->
+<link rel="stylesheet" href="style.css">
+<!-- script -->
+<script src="script.js" defer></script>
+<title>Music player</title>
+</head>
+
+<body>
+    <!-- section of mask effect -->
+    <section class="mask-effect-cont">
+        <div class="mask-effect"></div>
+    </section>
+
+    <!-- audio -->
+    <audio src="./audios/never gonna give you up.mp3"></audio>
+    <!-- music card -->
+    <div class="music-card" id="music-card">
+        <div class="music-image-container" id="music-image-container">
+            <img src="./images/Dance Monkey.jpg" alt="">
+        </div>
+        <div class="music-title" id="music-title">
+            <h1></h1>
+        </div>
+        <div class="music-author" id="music-author">
+            <h3></h3>
+        </div>
+        <div class="duration-and-progress-cont">
+            <div class="music-time-cont" id="music-time-cont">
+                <span class="current-duration time" id="current-duration">0:00</span>
+                <span class="final-duration time" id="final-duration">0:00</span>
+            </div>
+            <div class="progress-bar-container" id="progress-bar-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+        </div>
+        <div class="music-button-controlls" id="music-button-controlls">
+            <i class="fas fa-backward" id="previous-button"></i>
+            <i class="fas fa-play" id="play-button"></i>
+            <i class="fas fa-forward" id="next-button"></i>
+        </div>
+    </div>
+</body>
+
+</html>
