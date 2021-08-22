@@ -79,7 +79,7 @@ function loadSong(music) {
 }
 
 // current song
-let songIndex = 0;
+let songIndex = Math.floor(Math.random() * songs.length);
 
 // next song
 function nextSong() {
@@ -97,7 +97,7 @@ function nextSong() {
 function previousSong() {
     progressBar.style.width = '0%';
     songIndex--;
-    if (songIndex <= 0) {
+    if (songIndex < 0) {
         songIndex = songs.length - 1;
     }
     console.log(songIndex);
